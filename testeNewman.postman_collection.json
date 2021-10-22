@@ -1,0 +1,563 @@
+{
+	"info": {
+		"_postman_id": "56afaa21-03e3-4e0f-80ce-5dcd4d6d3988",
+		"name": "testeNewman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cobranças",
+			"item": [
+				{
+					"name": "Exibir uma cobrança",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Account-Number",
+								"value": "{{account}}",
+								"type": "text"
+							}
+						],
+						"url": "{{url}}/api/v1/charges/19984cfb-8364-4c6b-9d2e-3fcba9f5d9a8"
+					},
+					"response": []
+				},
+				{
+					"name": "criar cobrança",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"console.log(pm.info.eventName)\r",
+									"console.log(pm.info.interation)\r",
+									"console.log(pm.info.requestName)\r",
+									"console.log(pm.info.requestId)\r",
+									"\r",
+									"//pre script variaveis \r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}"
+							},
+							{
+								"key": "Account-Number",
+								"value": "{{account}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"paymentMethod\": \"boleto\",\n    \"dueDate\": \"2021-10-29\",\n    \"value\": 2,\n    \"abatement\": \"\",\n    \"monthlyInterest\": null,\n    \"applicableFine\": \"\",\n    \"clientControlNumber\":\"12641675781236821398216871263323142345423\",\n\n\n    \"grantor\": {\n        \"name\":\"Vivi TESTE 123\", \n        \"document_number\":\"46357443611\"\n        },\n\n       \"boleto\": {\n           \"registrationMethod\":\"online\"},\n\n    \"payer\": {\n            \n        \"name\": \"Enterprises Vivi 06.08.2021\",\n        \"documentNumber\": \"70775088000107\",\n        \"email\": \"viviane.moussa@grafeno.digital\",\n        \"phone\": {\n            \"countryCode\": 55,\n            \"areaCode\": 11,\n            \"number\": 55512345\n        },\n        \"address\": {\n            \"street\": \"Avenida Paulista\",\n            \"number\": \"0l\",\n            \"complement\": \"Cj. 500\",\n            \"zipCode\": \"02227-003\",\n            \"neighborhood\": \"Bela Vista\",\n            \"city\": \"São Paulo\",\n            \"state\": \"SP\"\n}\n    }}"
+						},
+						"url": "{{url}}/api/v1/charges"
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "7b4a2d4c-7155-462d-8a2a-92caccbc2000.RDe1qi7K8muJHhkFfr3pK1JmmYc"
+									},
+									{
+										"key": "Account-Number",
+										"value": "00004574-0"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"paymentMethod\": \"boleto\",\n    \"dueDate\": \"2021-07-01\",\n    \"value\": 250,\n    \"discount\": [\n        {\n            \"discountUntil\": null,\n            \"value\": null,\n            \"discountType\": \"fixed_value\"\n        }\n    ],\n    \"abatement\": \"\",\n    \"monthlyInterest\": null,\n    \"applicableFine\": \"\",\n    \"messagingRuleUuid\": \"{{ uuid }}\",\n    \"payer\": {\n        \"name\": \"Wayne Enterprises\",\n        \"documentNumber\": \"00735028125\",\n        \"email\": \"bruce@wayne.com\",\n        \"phone\": {\n            \"countryCode\": 55,\n            \"areaCode\": 11,\n            \"number\": 55512345\n        },\n        \"address\": {\n            \"street\": \"Avenida Paulista\",\n            \"number\": \"2000\",\n            \"complement\": \"Cj. 500\",\n            \"zipCode\": \"12345-678\",\n            \"neighborhood\": \"Bela Vista\",\n            \"city\": \"São Paulo\",\n            \"state\": \"SP\"\n        }\n    }\n}"
+								},
+								"url": "http://localhost:3000/api/v1/charges"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Feature-Policy",
+									"value": "accelerometer 'none'; ambient-light-sensor 'none'; autoplay 'none'; battery 'none'; camera 'none'; display-capture 'none'; document-domain 'none'; encrypted-media 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none'; picture-in-picture 'none'; publickey-credentials-get 'none'; sync-xhr 'none'; usb 'none'; wake-lock 'none'; web-share 'none'; xr-spatial-tracking"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), display-capture=(), document-domain=(), encrypted-media=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), sync-xhr=(), usb=(), wake-lock=(), web-share=(), xr-spatial-tracking"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fe15be5e83a7c13cebffb474dd06aef0\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "1dcdc307-72ab-4edc-90bb-c0594721b1fc"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "0.731537"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"uuid\": \"b1f2b251-5587-4b49-85be-1f84f0b916ab\",\n        \"createdAt\": \"2020-10-09T15:49:38.640-03:00\"\n    },\n    \"success\": true,\n    \"message\": \"OK\"\n}"
+						}
+					]
+				},
+				{
+					"name": "listar todas as cobranças",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Account-Number",
+								"value": "{{account}}",
+								"type": "text"
+							}
+						],
+						"url": "{{url}}/api/v1/charges"
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "{{Authorization}}",
+										"type": "text"
+									},
+									{
+										"key": "Account-Number",
+										"value": "{{Account-Number}}",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/charges"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Feature-Policy",
+									"value": "accelerometer 'none'; ambient-light-sensor 'none'; autoplay 'none'; battery 'none'; camera 'none'; display-capture 'none'; document-domain 'none'; encrypted-media 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none'; picture-in-picture 'none'; publickey-credentials-get 'none'; sync-xhr 'none'; usb 'none'; wake-lock 'none'; web-share 'none'; xr-spatial-tracking"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), display-capture=(), document-domain=(), encrypted-media=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), sync-xhr=(), usb=(), wake-lock=(), web-share=(), xr-spatial-tracking"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "X-bullet-footer-text",
+									"value": "[\"user: natalia  USE eager loading detected    Charge =\\u003e [:payments]\\n  Add to your query: .includes([:payments])\",\"user: natalia  USE eager loading detected    Charge =\\u003e [:billing_events]\\n  Add to your query: .includes([:billing_events])\",\"user: natalia  USE eager loading detected    Charge =\\u003e [:messaging_rule]\\n  Add to your query: .includes([:messaging_rule])\",\"user: natalia  USE eager loading detected    Charge =\\u003e [:address]\\n  Add to your query: .includes([:address])\"]"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33bdd8abc37b2ae2ece47bec65cac55b\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "5ff9f5aa-4247-448c-a2bf-9622cb20b0a4"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "2.947055"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"chargeUuid\": \"79a22fa4-1edb-4f96-9915-81409d618b09\",\n            \"createdAt\": \"2020-10-09T15:11:39.238-03:00\",\n            \"status\": \"pending\",\n            \"dueDate\": \"2020-10-14\",\n            \"value\": \"200.0\",\n            \"discount\": [],\n            \"abatement\": null,\n            \"interestType\": null,\n            \"monthlyInterest\": null,\n            \"applicableFine\": null,\n            \"messagingRuleUuid\": \"cc3bf334-e321-4e45-bada-0c8241a8e7be\",\n            \"payer\": {\n                \"name\": \"Carolina Viveiros\",\n                \"documentNumber\": \"32526658688146\",\n                \"email\": \"coyziemann@gloverkunze.info\",\n                \"phone\": {\n                    \"countryCode\": \"55\",\n                    \"areaCode\": \"55\",\n                    \"number\": \"79576431\"\n                },\n                \"address\": {\n                    \"street\": \"Rua Dos reis\",\n                    \"number\": \"0\",\n                    \"complement\": \"No lado da panificadora alfa\",\n                    \"zipCode\": \"95560-000\",\n                    \"neighborhood\": \"Centro\",\n                    \"city\": \"Torres\",\n                    \"state\": \"RS\"\n                }\n            },\n            \"boleto\": {\n                \"registrationStatus\": \"pending\"\n            },\n            \"payments\": [],\n            \"fees\": []\n        },\n        {\n            \"chargeUuid\": \"26bcf255-ea0d-4475-b594-6ebbb0d2f44f\",\n            \"createdAt\": \"2020-10-09T15:39:31.269-03:00\",\n            \"status\": \"pending\",\n            \"paymentMethod\": \"boleto\",\n            \"dueDate\": \"2021-07-01\",\n            \"value\": \"100.0\",\n            \"discount\": [\n                {\n                    \"discountUntil\": \"2021-06-25\",\n                    \"value\": \"0.25\"\n                }\n            ],\n            \"abatement\": null,\n            \"interestType\": null,\n            \"monthlyInterest\": null,\n            \"applicableFine\": null,\n            \"payer\": {\n                \"name\": \"Wayne Enterprises\",\n                \"documentNumber\": \"00735028125\",\n                \"email\": \"bruce@wayne.com\",\n                \"phone\": {\n                    \"countryCode\": \"55\",\n                    \"areaCode\": \"11\",\n                    \"number\": \"55512345\"\n                },\n                \"address\": {\n                    \"street\": \"Avenida Paulista\",\n                    \"number\": \"2000\",\n                    \"complement\": \"Cj. 500\",\n                    \"zipCode\": \"12345-678\",\n                    \"neighborhood\": \"Bela Vista\",\n                    \"city\": \"São Paulo\",\n                    \"state\": \"SP\"\n                }\n            },\n            \"boleto\": {\n                \"registrationMethod\": \"offline\",\n                \"registrationStatus\": \"pending\",\n                \"ourNumber\": 1,\n                \"yourNumber\": null,\n                \"barCode\": null,\n                \"lineCode\": null,\n                \"pdf\": \"http://localhost:3000/charges/26bcf255-ea0d-4475-b594-6ebbb0d2f44f/download_boleto\"\n            },\n            \"payments\": [],\n            \"fees\": []\n        },\n        {\n            \"chargeUuid\": \"b1f2b251-5587-4b49-85be-1f84f0b916ab\",\n            \"createdAt\": \"2020-10-09T15:49:38.640-03:00\",\n            \"status\": \"pending\",\n            \"paymentMethod\": \"boleto\",\n            \"dueDate\": \"2021-07-01\",\n            \"value\": \"250.0\",\n            \"discount\": [],\n            \"abatement\": null,\n            \"interestType\": null,\n            \"monthlyInterest\": null,\n            \"applicableFine\": \"0.02\",\n            \"payer\": {\n                \"name\": \"Wayne Enterprises\",\n                \"documentNumber\": \"00735028125\",\n                \"email\": \"bruce@wayne.com\",\n                \"phone\": {\n                    \"countryCode\": \"55\",\n                    \"areaCode\": \"11\",\n                    \"number\": \"55512345\"\n                },\n                \"address\": {\n                    \"street\": \"Avenida Paulista\",\n                    \"number\": \"2000\",\n                    \"complement\": \"Cj. 500\",\n                    \"zipCode\": \"12345-678\",\n                    \"neighborhood\": \"Bela Vista\",\n                    \"city\": \"São Paulo\",\n                    \"state\": \"SP\"\n                }\n            },\n            \"boleto\": {\n                \"registrationMethod\": \"offline\",\n                \"registrationStatus\": \"pending\",\n                \"ourNumber\": 2,\n                \"yourNumber\": null,\n                \"barCode\": null,\n                \"lineCode\": null,\n                \"pdf\": \"http://localhost:3000/charges/b1f2b251-5587-4b49-85be-1f84f0b916ab/download_boleto\"\n            },\n            \"payments\": [],\n            \"fees\": []\n        },\n        {\n            \"chargeUuid\": \"6e30a492-ae1f-44ef-a9a0-c8e1d8498a51\",\n            \"createdAt\": \"2020-10-09T16:08:11.956-03:00\",\n            \"status\": \"pending\",\n            \"paymentMethod\": \"boleto\",\n            \"dueDate\": \"2021-07-01\",\n            \"value\": \"250.0\",\n            \"discount\": [],\n            \"abatement\": null,\n            \"interestType\": null,\n            \"monthlyInterest\": null,\n            \"applicableFine\": \"0.02\",\n            \"payer\": {\n                \"name\": \"Wayne Enterprises\",\n                \"documentNumber\": \"00735028125\",\n                \"email\": \"bruce@wayne.com\",\n                \"phone\": {\n                    \"countryCode\": \"55\",\n                    \"areaCode\": \"11\",\n                    \"number\": \"55512345\"\n                },\n                \"address\": {\n                    \"street\": \"Avenida Paulista\",\n                    \"number\": \"2000\",\n                    \"complement\": \"Cj. 500\",\n                    \"zipCode\": \"12345-678\",\n                    \"neighborhood\": \"Bela Vista\",\n                    \"city\": \"São Paulo\",\n                    \"state\": \"SP\"\n                }\n            },\n            \"boleto\": {\n                \"registrationMethod\": \"offline\",\n                \"registrationStatus\": \"pending\",\n                \"ourNumber\": 3,\n                \"yourNumber\": null,\n                \"barCode\": null,\n                \"lineCode\": null,\n                \"pdf\": \"http://localhost:3000/charges/6e30a492-ae1f-44ef-a9a0-c8e1d8498a51/download_boleto\"\n            },\n            \"payments\": [],\n            \"fees\": []\n        }\n    ],\n    \"pagination\": {\n        \"total_pages\": 1,\n        \"current_page\": 1,\n        \"items_per_page\": 50,\n        \"count\": 4\n    },\n    \"success\": true,\n    \"message\": \"OK\",\n    \"searched\": {}\n}"
+						}
+					]
+				},
+				{
+					"name": "alterar cobrança",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "Account-Number",
+								"value": "{{account}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"dueDate\": \"2021-11-17\"\n}"
+						},
+						"url": "{{url}}/api/v1/charges/cd1b1975-caf4-488b-a425-85ae8ea397ee"
+					},
+					"response": [
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "7b4a2d4c-7155-462d-8a2a-92caccbc2000.RDe1qi7K8muJHhkFfr3pK1JmmYc",
+										"type": "text"
+									},
+									{
+										"key": "Account-Number",
+										"value": "00004574-0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"dueDate\": \"2020-12-12\"\n}"
+								},
+								"url": "{{url}}/charges/b1f2b251-5587-4b49-85be-1f84f0b916ab"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Feature-Policy",
+									"value": "accelerometer 'none'; ambient-light-sensor 'none'; autoplay 'none'; battery 'none'; camera 'none'; display-capture 'none'; document-domain 'none'; encrypted-media 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none'; picture-in-picture 'none'; publickey-credentials-get 'none'; sync-xhr 'none'; usb 'none'; wake-lock 'none'; web-share 'none'; xr-spatial-tracking"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), display-capture=(), document-domain=(), encrypted-media=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), sync-xhr=(), usb=(), wake-lock=(), web-share=(), xr-spatial-tracking"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"fe15be5e83a7c13cebffb474dd06aef0\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "aec752c9-2456-4049-8227-32e4c542eb16"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "1.650708"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"uuid\": \"b1f2b251-5587-4b49-85be-1f84f0b916ab\",\n        \"createdAt\": \"2020-10-09T15:49:38.640-03:00\"\n    },\n    \"success\": true,\n    \"message\": \"OK\"\n}"
+						},
+						{
+							"name": "200 ok",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "7b4a2d4c-7155-462d-8a2a-92caccbc2000.RDe1qi7K8muJHhkFfr3pK1JmmYc",
+										"type": "text"
+									},
+									{
+										"key": "Account-Number",
+										"value": "00004574-0",
+										"type": "text"
+									}
+								],
+								"url": "{{url}}/charges"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "1; mode=block"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "strict-origin-when-cross-origin"
+								},
+								{
+									"key": "Feature-Policy",
+									"value": "accelerometer 'none'; ambient-light-sensor 'none'; autoplay 'none'; battery 'none'; camera 'none'; display-capture 'none'; document-domain 'none'; encrypted-media 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none'; picture-in-picture 'none'; publickey-credentials-get 'none'; sync-xhr 'none'; usb 'none'; wake-lock 'none'; web-share 'none'; xr-spatial-tracking"
+								},
+								{
+									"key": "Permissions-Policy",
+									"value": "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), display-capture=(), document-domain=(), encrypted-media=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), sync-xhr=(), usb=(), wake-lock=(), web-share=(), xr-spatial-tracking"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "X-bullet-footer-text",
+									"value": "[\"user: natalia  USE eager loading detected    Charge =\\u003e [:payments]\\n  Add to your query: .includes([:payments])\",\"user: natalia  USE eager loading detected    Charge =\\u003e [:billing_events]\\n  Add to your query: .includes([:billing_events])\",\"user: natalia  USE eager loading detected    Charge =\\u003e [:messaging_rule]\\n  Add to your query: .includes([:messaging_rule])\",\"user: natalia  USE eager loading detected    Charge =\\u003e [:address]\\n  Add to your query: .includes([:address])\"]"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33bdd8abc37b2ae2ece47bec65cac55b\""
+								},
+								{
+									"key": "Cache-Control",
+									"value": "max-age=0, private, must-revalidate"
+								},
+								{
+									"key": "X-Request-Id",
+									"value": "5ff9f5aa-4247-448c-a2bf-9622cb20b0a4"
+								},
+								{
+									"key": "X-Runtime",
+									"value": "2.947055"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"chargeUuid\": \"79a22fa4-1edb-4f96-9915-81409d618b09\",\n            \"createdAt\": \"2020-10-09T15:11:39.238-03:00\",\n            \"status\": \"pending\",\n            \"dueDate\": \"2020-10-14\",\n            \"value\": \"200.0\",\n            \"discount\": [],\n            \"abatement\": null,\n            \"interestType\": null,\n            \"monthlyInterest\": null,\n            \"applicableFine\": null,\n            \"messagingRuleUuid\": \"cc3bf334-e321-4e45-bada-0c8241a8e7be\",\n            \"payer\": {\n                \"name\": \"Carolina Viveiros\",\n                \"documentNumber\": \"32526658688146\",\n                \"email\": \"coyziemann@gloverkunze.info\",\n                \"phone\": {\n                    \"countryCode\": \"55\",\n                    \"areaCode\": \"55\",\n                    \"number\": \"79576431\"\n                },\n                \"address\": {\n                    \"street\": \"Rua Dos reis\",\n                    \"number\": \"0\",\n                    \"complement\": \"No lado da panificadora alfa\",\n                    \"zipCode\": \"95560-000\",\n                    \"neighborhood\": \"Centro\",\n                    \"city\": \"Torres\",\n                    \"state\": \"RS\"\n                }\n            },\n            \"boleto\": {\n                \"registrationStatus\": \"pending\"\n            },\n            \"payments\": [],\n            \"fees\": []\n        },\n        {\n            \"chargeUuid\": \"26bcf255-ea0d-4475-b594-6ebbb0d2f44f\",\n            \"createdAt\": \"2020-10-09T15:39:31.269-03:00\",\n            \"status\": \"pending\",\n            \"paymentMethod\": \"boleto\",\n            \"dueDate\": \"2021-07-01\",\n            \"value\": \"100.0\",\n            \"discount\": [\n                {\n                    \"discountUntil\": \"2021-06-25\",\n                    \"value\": \"0.25\"\n                }\n            ],\n            \"abatement\": null,\n            \"interestType\": null,\n            \"monthlyInterest\": null,\n            \"applicableFine\": null,\n            \"payer\": {\n                \"name\": \"Wayne Enterprises\",\n                \"documentNumber\": \"00735028125\",\n                \"email\": \"bruce@wayne.com\",\n                \"phone\": {\n                    \"countryCode\": \"55\",\n                    \"areaCode\": \"11\",\n                    \"number\": \"55512345\"\n                },\n                \"address\": {\n                    \"street\": \"Avenida Paulista\",\n                    \"number\": \"2000\",\n                    \"complement\": \"Cj. 500\",\n                    \"zipCode\": \"12345-678\",\n                    \"neighborhood\": \"Bela Vista\",\n                    \"city\": \"São Paulo\",\n                    \"state\": \"SP\"\n                }\n            },\n            \"boleto\": {\n                \"registrationMethod\": \"offline\",\n                \"registrationStatus\": \"pending\",\n                \"ourNumber\": 1,\n                \"yourNumber\": null,\n                \"barCode\": null,\n                \"lineCode\": null,\n                \"pdf\": \"http://localhost:3000/charges/26bcf255-ea0d-4475-b594-6ebbb0d2f44f/download_boleto\"\n            },\n            \"payments\": [],\n            \"fees\": []\n        },\n        {\n            \"chargeUuid\": \"b1f2b251-5587-4b49-85be-1f84f0b916ab\",\n            \"createdAt\": \"2020-10-09T15:49:38.640-03:00\",\n            \"status\": \"pending\",\n            \"paymentMethod\": \"boleto\",\n            \"dueDate\": \"2021-07-01\",\n            \"value\": \"250.0\",\n            \"discount\": [],\n            \"abatement\": null,\n            \"interestType\": null,\n            \"monthlyInterest\": null,\n            \"applicableFine\": \"0.02\",\n            \"payer\": {\n                \"name\": \"Wayne Enterprises\",\n                \"documentNumber\": \"00735028125\",\n                \"email\": \"bruce@wayne.com\",\n                \"phone\": {\n                    \"countryCode\": \"55\",\n                    \"areaCode\": \"11\",\n                    \"number\": \"55512345\"\n                },\n                \"address\": {\n                    \"street\": \"Avenida Paulista\",\n                    \"number\": \"2000\",\n                    \"complement\": \"Cj. 500\",\n                    \"zipCode\": \"12345-678\",\n                    \"neighborhood\": \"Bela Vista\",\n                    \"city\": \"São Paulo\",\n                    \"state\": \"SP\"\n                }\n            },\n            \"boleto\": {\n                \"registrationMethod\": \"offline\",\n                \"registrationStatus\": \"pending\",\n                \"ourNumber\": 2,\n                \"yourNumber\": null,\n                \"barCode\": null,\n                \"lineCode\": null,\n                \"pdf\": \"http://localhost:3000/charges/b1f2b251-5587-4b49-85be-1f84f0b916ab/download_boleto\"\n            },\n            \"payments\": [],\n            \"fees\": []\n        },\n        {\n            \"chargeUuid\": \"6e30a492-ae1f-44ef-a9a0-c8e1d8498a51\",\n            \"createdAt\": \"2020-10-09T16:08:11.956-03:00\",\n            \"status\": \"pending\",\n            \"paymentMethod\": \"boleto\",\n            \"dueDate\": \"2021-07-01\",\n            \"value\": \"250.0\",\n            \"discount\": [],\n            \"abatement\": null,\n            \"interestType\": null,\n            \"monthlyInterest\": null,\n            \"applicableFine\": \"0.02\",\n            \"payer\": {\n                \"name\": \"Wayne Enterprises\",\n                \"documentNumber\": \"00735028125\",\n                \"email\": \"bruce@wayne.com\",\n                \"phone\": {\n                    \"countryCode\": \"55\",\n                    \"areaCode\": \"11\",\n                    \"number\": \"55512345\"\n                },\n                \"address\": {\n                    \"street\": \"Avenida Paulista\",\n                    \"number\": \"2000\",\n                    \"complement\": \"Cj. 500\",\n                    \"zipCode\": \"12345-678\",\n                    \"neighborhood\": \"Bela Vista\",\n                    \"city\": \"São Paulo\",\n                    \"state\": \"SP\"\n                }\n            },\n            \"boleto\": {\n                \"registrationMethod\": \"offline\",\n                \"registrationStatus\": \"pending\",\n                \"ourNumber\": 3,\n                \"yourNumber\": null,\n                \"barCode\": null,\n                \"lineCode\": null,\n                \"pdf\": \"http://localhost:3000/charges/6e30a492-ae1f-44ef-a9a0-c8e1d8498a51/download_boleto\"\n            },\n            \"payments\": [],\n            \"fees\": []\n        }\n    ],\n    \"pagination\": {\n        \"total_pages\": 1,\n        \"current_page\": 1,\n        \"items_per_page\": 50,\n        \"count\": 4\n    },\n    \"success\": true,\n    \"message\": \"OK\",\n    \"searched\": {}\n}"
+						}
+					]
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"console.log(pm.info.requestName)"
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					"",
+					"pm.test(\"Body matches string\", function () {",
+					"    pm.expect(pm.response.text()).to.include(\"true\");",
+					"});",
+					""
+				]
+			}
+		}
+	]
+}
